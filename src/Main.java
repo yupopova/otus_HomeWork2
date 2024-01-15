@@ -33,13 +33,14 @@ public class Main {
 
                 switch (commandsData) {
                     case ADD:
-                        System.out.println("Введите тип животного: cat / dog / duck");
-                        String animalTypeStr = scanner.next().toUpperCase().trim();
+                        while (true) {
+                            System.out.println("Введите тип животного: cat / dog / duck");
+                            String animalTypeStr = scanner.next().toUpperCase().trim();
 
-                        if (!dataValidator.isValidate(animalTypeStr, AnimalData.values())) {
-                            System.out.println("Вы ввели неверный тип животного");
-                            continue;
-                        }
+                            if (!dataValidator.isValidate(animalTypeStr, AnimalData.values())) {
+                                System.out.println("Вы ввели неверный тип животного");
+                                continue;
+                            }
 
                         Animal animal = animalFactory.create(AnimalData.valueOf(animalTypeStr));
 
@@ -64,7 +65,9 @@ public class Main {
                             ((IFlying) animal).fly();
                         }
 
+
                         break;
+                        }
 
                     case LIST:
                         if(animalList.isEmpty()) {

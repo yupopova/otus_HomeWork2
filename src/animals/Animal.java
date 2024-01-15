@@ -57,7 +57,7 @@
         int dataAgeWeight = -1;
         while(true) {
             String animalAgeWeightStr = scanner.next();
-            if(dataValidator.isDataByRegExp(animalAgeWeightStr, Pattern.compile("^\\d+$"))) {
+            if(dataValidator.isDataByRegExp(animalAgeWeightStr, Pattern.compile("^[0-9]{1,2}+$"))) {
                 dataAgeWeight = Integer.parseInt(animalAgeWeightStr);
                 if (predicate.test(dataAgeWeight)) {
                     System.out.println("Вы ввели некорректное значение. Повторите ещё раз");
